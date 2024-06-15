@@ -1,0 +1,15 @@
+[Unit]
+Description=network reconnect service
+After=network-online.target
+
+StartLimitIntervalSec=500
+StartLimitBurst=5
+
+[Service]
+Type=simple
+ExecStart=/opt/network-reconnector/network-reconnector --config /opt/network-reconnector/config.yaml
+Restart=on-failure
+RestartSec=10s
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,14 @@
+logger:
+  # filename: ./network.log
+  log-level: info
+
+cidrs: 
+  - 192.168.0.0/24
+
+# check if connected in period
+period: 5m
+
+# raspberry
+restart-commands:
+  - ip link set wlan0 down
+  - ip link set wlan0 up
